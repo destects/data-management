@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssignmentModelCollection xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/IOSOverlay.Data.Models">
+  <CollectionUID>d51f9f75-2ccd-40e2-bcc9-0d8163beea84</CollectionUID>
+  <CollectionUpdateVersion>2</CollectionUpdateVersion>
+	<_NextIndex>100</_NextIndex>
+	<_Collection xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel" />
+</AssignmentModelCollection>

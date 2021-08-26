@@ -1,0 +1,40 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="http://schemas.localhost/IOSOverlay"
+	xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+>
+
+	<l:AdvancedCraneConfigurationConverter x:Key="AdvancedCraneConfigurationConverter" PresentationOptions:Freeze="True" />
+	<l:BoolToInvertBoolConverter x:Key="BoolToInvertBoolConverter" PresentationOptions:Freeze="True" />
+	<l:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" PresentationOptions:Freeze="True" />
+	<l:CastToIntConverter x:Key="CastToIntConverter" PresentationOptions:Freeze="True" />
+	<l:CommandToVisibilityConverter x:Key="CommandToVisibilityConverter" PresentationOptions:Freeze="True" />
+	<l:DateTimeToStringConverter x:Key="DateTimeToStringConverter" PresentationOptions:Freeze="True" />
+	<l:DBNullToNullConverter x:Key="DBNullToNullConverter" PresentationOptions:Freeze="True" />
+	<l:EmptyStringToNullConverter x:Key="EmptyStringToNullConverter" PresentationOptions:Freeze="True" />
+	<l:EnumDescriptionAttributeRetriever x:Key="EnumDescriptionAttributeRetriever" PresentationOptions:Freeze="True" />
+	<l:DisplayNameAttributeRetriever x:Key="DisplayNameAttributeRetriever" PresentationOptions:Freeze="True" />
+	<l:EnumEqualsToVisibilityConverter x:Key="EnumEqualsToVisibilityConverter" PresentationOptions:Freeze="True" />
+	<l:EnumFlagCheckToVisibilityConverter x:Key="EnumFlagCheckToVisibilityConverter" PresentationOptions:Freeze="True" />
+	<l:EnumFlagValueConverter x:Key="EnumFlagValueConverter" PresentationOptions:Freeze="True" />
+	<l:EnumHasFlagConverter x:Key="EnumHasFlagConverter" PresentationOptions:Freeze="True" />
+	<l:EnumSelectionConverter x:Key="EnumSelectionConverter" PresentationOptions:Freeze="True" />
+	<l:EnumToBoolConverter x:Key="EnumToBoolConverter" PresentationOptions:Freeze="True" />
+	<l:EnumValueConverter x:Key="EnumValueConverter" PresentationOptions:Freeze="True" />
+	<l:ExpanderGroupExpansionConverter x:Key="ExpanderGroupExpansionConverter" PresentationOptions:Freeze="True" />
+	<l:IntEqualityConverter x:Key="IntEqualityConverter" PresentationOptions:Freeze="True" />
+	<l:ListHiddenVisibilityConverter x:Key="ListHiddenVisibilityConverter" PresentationOptions:Freeze="True" />
+	<l:NullToBoolConverter x:Key="NullToBoolConverter" PresentationOptions:Freeze="True" />
+	<l:RadioButtonConverter x:Key="RadioButtonConverter" PresentationOptions:Freeze="True" />
+	<l:RoundNumberConverter x:Key="RoundNumberConverter" PresentationOptions:Freeze="True" />
+	<l:ScaledFloatConverter x:Key="ScaledFloatConverter" PresentationOptions:Freeze="True" />
+	<l:SecondsToTimeConverter x:Key="SecondsToTimeConverter" PresentationOptions:Freeze="True" />
+	<l:StringToBitmapConverter x:Key="StringToBitmapConverter" PresentationOptions:Freeze="True" />
+	<l:SwingDampeningConverter x:Key="SwingDampeningConverter" PresentationOptions:Freeze="True" />
+	<l:TimeSpanConverter x:Key="TimeSpanConverter" PresentationOptions:Freeze="True" />
+	<l:UnitSystemMultiConverter x:Key="UnitSystemMultiConverter" PresentationOptions:Freeze="True" />
+	<l:URIToImageConverter x:Key="URIToImageConverter" PresentationOptions:Freeze="True" />
+	<l:ViewpointFilterConverter x:Key="ViewpointFilterConverter" PresentationOptions:Freeze="True" />
+	<l:ViewViewModelConverter x:Key="ViewViewModelConverter" PresentationOptions:Freeze="True" />
+</ResourceDictionary>

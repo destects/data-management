@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CraneConfigModelCollection xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/IOSOverlay.Data.Models">
+  <CollectionUID>9f068291-3364-4f83-98d6-79fd4a4021a5</CollectionUID>
+  <CollectionUpdateVersion>11</CollectionUpdateVersion>
+  <_NextIndex>100</_NextIndex>
+  <_Collection xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel">
+
+  </_Collection>
+</CraneConfigModelCollection>

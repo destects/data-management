@@ -1,0 +1,137 @@
+﻿<#@ template  debug="true" hostSpecific="true" language="C#"
+#><#@ output extension=".cs"
+#><#@ assembly Name="System.Core"
+#><#@ assembly Name="System.Windows.Forms"
+#><#@ import namespace="System"
+#><#@ import namespace="System.IO"
+#><#@ import namespace="System.Diagnostics"
+#><#@ import namespace="System.Linq"
+#><#@ import namespace="System.Reflection"
+#><#@ import namespace="System.Collections"
+#><#@ import namespace="System.Collections.Generic"
+#><#@ import namespace="System.ComponentModel"
+#><#@ include file="DataModels.tt" 
+#><#
+	var types = new[]{
+		new {type = typeof(Report)           , genColl = true  , V2 = false},
+		new {type = typeof(User)             , genColl = true  , V2 = false},
+		new {type = typeof(Group)            , genColl = true  , V2 = false},
+		new {type = typeof(Environment)      , genColl = true  , V2 = false},
+		new {type = typeof(CraneConfig)      , genColl = true  , V2 = false},
+		new {type = typeof(Exercise)         , genColl = true  , V2 = false},
+		new {type = typeof(Assignment)       , genColl = true  , V2 = false},
+		new {type = typeof(SimulatorSettings), genColl = false , V2 = false},
+		new {type = typeof(ScoringDeductions), genColl = true  , V2 = false},
+		new {type = typeof(AttemptData)      , genColl = false , V2 = false},
+		new {type = typeof(GroupAssignment)  , genColl = true  , V2 = false}
+	};
+#>
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Threading;
+using System.IO;
+
+namespace IOSOverlay.Data.Models {
+<# foreach(var t in types) { #>
+
+	[DataContract, Serializable, StructLayout(LayoutKind.Sequential)]
+	public partial struct <#= t.type.Name #> {
+<#		foreach(var m in t.type.GetFields()){ #>
+		[DataMember<# if(IsObsolete(m)){#>, Obsolete("<#= GetObsoleteAttribute(m).Message ?? string.Empty #>", <#= GetObsoleteAttribute(m).IsError.ToString().ToLower() #>)<#}#>]
+		public <#= m.FieldType.Name #> <#= m.Name #>;
+<#		} #>
+	}
+
+	[KnownType(typeof(<#= t.type.Name #>))]
+	public sealed partial class <#= t.type.Name #>Model:Model<<#= t.type.Name #>> {
+
+<#		foreach(var m in t.type.GetFields()){ #>
+		[IgnoreDataMember<# if(IsObsolete(m)){#>, Obsolete("<#= GetObsoleteAttribute(m).Message ?? string.Empty #>", <#= GetObsoleteAttribute(m).IsError.ToString().ToLower() #>)<#}#>]
+		public <#= m.FieldType.Name #> <#= m.Name #>{
+			get {
+				return View.<#= m.Name #>;
+			}
+			set {
+				if(EditMode) {
+					if(View.<#= m.Name #> != value) {
+						if(!EditMode) BeginEdit();
+						View.<#= m.Name #> = value;
+						IsChanged = true;
+						RaisePropertyChanged();
+					}
+				}
+			}
+		}
+<#		} #>
+
+		internal <#= t.type.Name #>Model(string fileName):base(fileName) {
+			PropertyNotificationLinker.Inspect(this.GetType());
+		}
+		
+		public <#= t.type.Name #>Model():base(){
+			PropertyNotificationLinker.Inspect(this.GetType());
+		}
+
+		internal static <#= t.type.Name #>Model Create(string fileName){
+			return <#= t.type.Name #>Model.Deserialize<<#= t.type.Name #>Model>(fileName);
+		}
+
+		internal static <#= t.type.Name #>Model Create(Stream stream){
+			return <#= t.type.Name #>Model.Deserialize<<#= t.type.Name #>Model>(stream);
+		}
+
+		internal static Task<<#= t.type.Name #>Model> AsyncCreate(string fileName){
+			return <#= t.type.Name #>Model.AsyncDeserialize<<#= t.type.Name #>Model>(fileName);
+		}
+
+		public override object Clone(){
+			return OnCloning(this, new <#= t.type.Name #>Model(){ Master = this.Master, State = ModelStates.New });
+		}
+	}
+	<# if(t.genColl){ #>
+	[KnownType(typeof(<#= t.type.Name #>Model))]
+	public sealed partial class <#= t.type.Name #>ModelCollection:ModelCollection<<#= t.type.Name #>Model, <#= t.type.Name #>> {
+
+		internal static <#= t.type.Name #>ModelCollection Create(string fileName) {
+			return <#= t.type.Name #>ModelCollection.Deserialize<<#= t.type.Name #>ModelCollection>(fileName);
+		}
+
+		internal static <#= t.type.Name #>ModelCollection Create(Stream stream) {
+			return <#= t.type.Name #>ModelCollection.Deserialize<<#= t.type.Name #>ModelCollection>(stream);
+		}
+
+		internal static Task<<#= t.type.Name #>ModelCollection> AsyncCreate(string fileName) {
+			return <#= t.type.Name #>ModelCollection.AsyncDeserialize<<#= t.type.Name #>ModelCollection>(fileName);
+		}
+	}
+	<# } #>
+<# } #>
+}
+
+<#+
+	public bool HasDefaultValue(FieldInfo field){
+		return false;
+	}
+	bool IsObsolete(FieldInfo field){
+		if(field != null){
+			var oa = field.GetCustomAttribute<ObsoleteAttribute>();
+			if(oa != null) {
+				return true;
+			}
+		}
+		return false;
+	}
+	ObsoleteAttribute GetObsoleteAttribute(FieldInfo field){
+		if(field != null){
+			return field.GetCustomAttribute<ObsoleteAttribute>();
+		}
+		return null;
+	}
+#>

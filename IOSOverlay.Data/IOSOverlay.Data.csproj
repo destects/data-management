@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E1D215A5-F5AE-4F13-BF53-F3098706CB7C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IOSOverlay.Data</RootNamespace>
+    <AssemblyName>IOSOverlay.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <AssemblyVersion>1.0.8.8</AssemblyVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Partials\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PLAIN_TEXT, DISABLE_ENCODING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Partials\Release\</OutputPath>
+    <DefineConstants>TRACE;PLAIN_TEXT, DISABLE_ENCODING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugLibs|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Partials\DebugLibs\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PLAIN_TEXT, DISABLE_ENCODING</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\x64\Partials\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\bin\x64\Partials\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugLibs|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\x64\Partials\DebugLibs\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Reference Include="Utility">
+      <HintPath>..\..\Libraries\bin\Release\Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="SharedData">
+      <HintPath>..\..\Libraries\bin\Release\SharedData.dll</HintPath>
+    </Reference>
+    <Reference Include="Simulation">
+      <HintPath>..\..\Libraries\bin\Release\Simulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Extensions">
+      <HintPath>..\..\Libraries\bin\Release\Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Reference Include="Utility">
+      <HintPath>..\..\Libraries\bin\Release\Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="SharedData">
+      <HintPath>..\..\Libraries\bin\Release\SharedData.dll</HintPath>
+    </Reference>
+    <Reference Include="Simulation">
+      <HintPath>..\..\Libraries\bin\Release\Simulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Extensions">
+      <HintPath>..\..\Libraries\bin\Release\Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|AnyCPU' ">
+    <Reference Include="Utility">
+      <HintPath>..\..\Libraries\bin\Debug\Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="SharedData">
+      <HintPath>..\..\Libraries\bin\Debug\SharedData.dll</HintPath>
+    </Reference>
+    <Reference Include="Simulation">
+      <HintPath>..\..\Libraries\bin\Debug\Simulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Extensions">
+      <HintPath>..\..\Libraries\bin\Debug\Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <Reference Include="Utility">
+      <HintPath>..\..\Libraries\bin\x64\Release\Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="SharedData">
+      <HintPath>..\..\Libraries\bin\x64\Release\SharedData.dll</HintPath>
+    </Reference>
+    <Reference Include="Simulation">
+      <HintPath>..\..\Libraries\bin\x64\Release\Simulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Extensions">
+      <HintPath>..\..\Libraries\bin\x64\Release\Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <Reference Include="Utility">
+      <HintPath>..\..\Libraries\bin\x64\Release\Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="SharedData">
+      <HintPath>..\..\Libraries\bin\x64\Release\SharedData.dll</HintPath>
+    </Reference>
+    <Reference Include="Simulation">
+      <HintPath>..\..\Libraries\bin\x64\Release\Simulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Extensions">
+      <HintPath>..\..\Libraries\bin\x64\Release\Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|x64' ">
+    <Reference Include="Utility">
+      <HintPath>..\..\Libraries\bin\x64\Debug\Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="SharedData">
+      <HintPath>..\..\Libraries\bin\x64\Debug\SharedData.dll</HintPath>
+    </Reference>
+    <Reference Include="Simulation">
+      <HintPath>..\..\Libraries\bin\x64\Debug\Simulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Extensions">
+      <HintPath>..\..\Libraries\bin\x64\Debug\Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountManager.cs" />
+    <Compile Include="ActiveSelectionChangedEvent.cs" />
+    <Compile Include="ModelGroupingOptions.cs" />
+    <Compile Include="Models\ModelOwnerChanger.cs" />
+    <Compile Include="Models\IO\ModelExporter.cs" />
+    <Compile Include="Models\IO\ModelInporter.cs" />
+    <Compile Include="Models\IO\ModelPackage.cs" />
+    <Compile Include="Models\IO\ModelTypeReference.cs" />
+    <Compile Include="Models\IO\PackageDataEntry.cs" />
+    <Compile Include="Models\IO\PackageInfo.cs" />
+    <Compile Include="Models\IO\PackageList.cs" />
+    <Compile Include="Models\IO\PackageManager.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\ModelEditToken.cs" />
+    <Compile Include="Models\ModelStates.cs" />
+    <Compile Include="Models\MultiSelectModelCollectionView.cs" />
+    <Compile Include="Models\PackageTag.cs" />
+    <Compile Include="Models\SelectableModelWrapper.cs" />
+    <Compile Include="UserTypeFlags.cs" />
+    <Compile Include="ICommonInformation.cs" />
+    <Compile Include="Models\DataModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EnvironmentSettingsModel.cs" />
+    <Compile Include="Models\GenericModel.cs" />
+    <Compile Include="Models\ModelCollection.cs" />
+    <Compile Include="ModelManager.cs" />
+    <Compile Include="Models\Models.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OperatorAidsModel.cs" />
+    <Compile Include="Models\PartialModels.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\IOSOverlay.Data.Models.ReportModel.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\DataModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModels.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Models.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Models.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\DataSources\IOSOverlay.Data.Models.UserModel.datasource" />
+    <None Include="Resources\DefaultData.pack">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\ScoringSets.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Reports.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Groups.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\GroupAssignments.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Exercises.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Assignments.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Settings.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Users.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Environments.xml" />
+    <None Include="Resources\CraneConfigurations.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WPFExtension\WPFExtension.csproj">
+      <Project>{ce795fb6-9181-405d-b836-c935ad74bc21}</Project>
+      <Name>WPFExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Attributes\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

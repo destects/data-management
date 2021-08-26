@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScoringDeductionsModelCollection xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/IOSOverlay.Data.Models">
+  <CollectionUID>f3003259-9852-49e5-a4c1-a72c41b808fb</CollectionUID>
+  <CollectionUpdateVersion>2</CollectionUpdateVersion>
+  <_NextIndex>100</_NextIndex>
+  <_Collection xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel">
+    
+    
+    
+  </_Collection>
+</ScoringDeductionsModelCollection>

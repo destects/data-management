@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{68F05EB0-6BAA-45B1-9F43-6A7238C8FCBD}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IOSOverlay.Common</RootNamespace>
+    <AssemblyName>IOSOverlay.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Partials\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Partials\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugLibs|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Partials\DebugLibs\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\x64\Partials\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\bin\x64\Partials\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugLibs|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\x64\Partials\DebugLibs\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Extensions">
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|AnyCPU' ">..\..\Libraries\bin\Debug\Extensions.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">..\..\Libraries\bin\Release\Extensions.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">..\..\Libraries\bin\Release\Extensions.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|x64' ">..\..\Libraries\bin\x64\Debug\Extensions.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">..\..\Libraries\bin\x64\Release\Extensions.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">..\..\Libraries\bin\x64\Release\Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="InputAgregation">
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|AnyCPU' ">..\..\Libraries\bin\Debug\InputAgregation.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">..\..\Libraries\bin\Release\InputAgregation.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">..\..\Libraries\bin\Release\InputAgregation.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|x64' ">..\..\Libraries\bin\x64\Debug\InputAgregation.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">..\..\Libraries\bin\x64\Release\InputAgregation.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">..\..\Libraries\bin\x64\Release\InputAgregation.dll</HintPath>
+    </Reference>
+    <Reference Include="SharedData">
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|AnyCPU' ">..\..\Libraries\bin\Debug\SharedData.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">..\..\Libraries\bin\Release\SharedData.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">..\..\Libraries\bin\Release\SharedData.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|x64' ">..\..\Libraries\bin\x64\Debug\SharedData.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">..\..\Libraries\bin\x64\Release\SharedData.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">..\..\Libraries\bin\x64\Release\SharedData.dll</HintPath>
+    </Reference>
+    <Reference Include="Simulation">
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|AnyCPU' ">..\..\Libraries\bin\Debug\Simulation.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">..\..\Libraries\bin\Release\Simulation.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">..\..\Libraries\bin\Release\Simulation.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|x64' ">..\..\Libraries\bin\x64\Debug\Simulation.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">..\..\Libraries\bin\x64\Release\Simulation.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">..\..\Libraries\bin\x64\Release\Simulation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="Utility">
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|AnyCPU' ">..\..\Libraries\bin\Debug\Utility.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">..\..\Libraries\bin\Release\Utility.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">..\..\Libraries\bin\Release\Utility.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'DebugLibs|x64' ">..\..\Libraries\bin\x64\Debug\Utility.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">..\..\Libraries\bin\x64\Release\Utility.dll</HintPath>
+      <HintPath Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">..\..\Libraries\bin\x64\Release\Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\IIOSOverlayPanel.cs" />
+    <Compile Include="API\IReportViewModel.cs" />
+    <Compile Include="BitmapConverter.cs" />
+    <Compile Include="BottomBarConfigurations.cs" />
+    <Compile Include="ApplicationBridge.cs" />
+    <Compile Include="BBO.cs" />
+    <Compile Include="BottomBarExtensions.cs" />
+    <Compile Include="IPageProvider.cs" />
+    <Compile Include="KnownPagesIndex.cs" />
+    <Compile Include="Navigator.cs" />
+    <Compile Include="Page.cs" />
+    <Compile Include="PageFactory.cs" />
+    <Compile Include="PageTemplate.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="Views\View.cs" />
+    <Page Include="Assets\ConverterDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConverterDictionary.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\EnumsDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Simple Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\StylesDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\TemplatesDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ViewLinkDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ExpressionLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Simple Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\IOSOverlay.Controls\IOSOverlay.Controls.csproj">
+      <Project>{2380e6a2-66fd-4178-8a55-c4d278f3a870}</Project>
+      <Name>IOSOverlay.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IOSOverlay.Converters\IOSOverlay.Converters.csproj">
+      <Project>{aeb5e386-fb16-4ad3-a436-fd4453ad80bb}</Project>
+      <Name>IOSOverlay.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IOSOverlay.Data\IOSOverlay.Data.csproj">
+      <Project>{e1d215a5-f5ae-4f13-bf53-f3098706cb7c}</Project>
+      <Name>IOSOverlay.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IOSOverlay.Helpers\IOSOverlay.Helpers.csproj">
+      <Project>{4b3d7a3b-1e19-43ca-9f5a-9a776779e4bc}</Project>
+      <Name>IOSOverlay.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPFExtension\WPFExtension.csproj">
+      <Project>{ce795fb6-9181-405d-b836-c935ad74bc21}</Project>
+      <Name>WPFExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\ConverterDictionary.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConverterDictionary.xaml</LastGenOutput>
+    </Content>
+    <Resource Include="Resources\Icons\Icon_ViewReport.png" />
+    <Resource Include="Resources\Icons\Icon_Students.png" />
+    <Resource Include="Resources\Icons\Icon_StudentInfo.png" />
+    <Resource Include="Resources\Icons\Icon_Settings.png" />
+    <Resource Include="Resources\Icons\Icon_Save.png" />
+    <Resource Include="Resources\Icons\Icon_Run.png" />
+    <Resource Include="Resources\Icons\Icon_Restart.png" />
+    <Resource Include="Resources\Icons\Icon_Reports.png" />
+    <Resource Include="Resources\Icons\Icon_RemoveReport.png" />
+    <Resource Include="Resources\Icons\Icon_Remove.png" />
+    <Resource Include="Resources\Icons\Icon_Play.png" />
+    <Resource Include="Resources\Icons\Icon_Pause.png" />
+    <Resource Include="Resources\Icons\Icon_Modify.png" />
+    <Resource Include="Resources\Icons\Icon_Management.png" />
+    <Resource Include="Resources\Icons\Icon_Login.png" />
+    <Resource Include="Resources\Icons\Icon_Load.png" />
+    <Resource Include="Resources\Icons\Icon_Groups.png" />
+    <Resource Include="Resources\Icons\Icon_Fault.png" />
+    <Resource Include="Resources\Icons\Icon_Exit.png" />
+    <Resource Include="Resources\Icons\Icon_Exercises.png" />
+    <Resource Include="Resources\Icons\Icon_ExerciseOverview.png" />
+    <Resource Include="Resources\Icons\Icon_End.png" />
+    <Resource Include="Resources\Icons\Icon_Duplicate.png" />
+    <Resource Include="Resources\Icons\Icon_Delete.png" />
+    <Resource Include="Resources\Icons\Icon_CreateAssignment.png" />
+    <Resource Include="Resources\Icons\Icon_Continue.png" />
+    <Resource Include="Resources\Icons\Icon_Cancel.png" />
+    <Resource Include="Resources\Icons\Icon_Back.png" />
+    <Resource Include="Resources\Icons\Icon_Assignments.png" />
+    <Resource Include="Resources\Icons\Icon_AddComment.png" />
+    <Resource Include="Resources\splash-grayscale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

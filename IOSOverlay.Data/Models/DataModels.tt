@@ -1,0 +1,316 @@
+﻿<#@ template  debug="true" hostSpecific="true" language="C#"
+#><#@ assembly Name="System.Core"
+#><#@ assembly Name="System.Windows.Forms"
+#><#@ import namespace="System"
+#><#@ import namespace="System.IO"
+#><#@ import namespace="System.Diagnostics"
+#><#@ import namespace="System.Linq"
+#><#@ import namespace="System.Collections"
+#><#@ import namespace="System.Reflection"
+#><#@ import namespace="System.Collections"
+#><#@ import namespace="System.Collections.Generic"
+#><#@ import namespace="System.ComponentModel"#>
+<#+
+	struct Report {
+		public string ExerciseName;
+		public string UserName;
+		public string GroupName;
+		[Obsolete("Use UserUID")]
+		public int UserID;
+		public Guid UserUID;
+		[Obsolete("Use GroupUID")]
+		public int GroupID;
+		public Guid GroupUID;
+		[Obsolete("Use ExerciseUID")]
+		public int ExerciseID;
+		public Guid ExerciseUID;
+		[Obsolete("Use GroupAssignmentUID")]
+		public int GroupAssignmentID;
+		public Guid GroupAssignmentUID;
+		public DateTime AssignedDate;
+		public DateTime CompletionDate;
+		public string AssignmentName;
+		public int MaxAttempts;
+		public string EnvironmentName;
+		public string BaseEnvironment;
+		public string ViewPoint;
+		public string Controls;
+		public string Configuration;
+		public string ScoringSet;
+		public string Comments;
+		public int MinPassingScore;
+		public int AttemptsCount;
+		public string ExerciseCategory;
+
+		public bool PracticeAllowed;
+		public bool PracticeUsed;
+
+		public int BestAttemptIndex;
+		public object[] AttemptsData;
+
+		public object ScoringSetCopy;
+		public object CraneConfigCopy;
+		public object ExerciseCopy;
+	}
+
+	struct AttemptData {
+		public int AttemptNum;
+		public int Score;
+		public bool Passed;
+		public int RunTime;
+		public int HookCollisions;
+		public int LoadCollisions;
+		public int ConeCollisions;
+		public int PowerLineProximityPenalties;
+		public int PowerLineContactPenalties;
+		public int WarningAcknowledgementFailures;
+		public float Overtime;
+		public int ExcessiveSwingingPenalty;
+		public int LoadHeightPenalty;
+		public DateTime AttemptDate;
+		public bool WasPractice;
+		public bool CatastrophicFailure;
+		public bool UnableToContinue;
+		public bool TimeLimitReached;
+		public bool SuccessfulFaultPass;
+		public bool ExerciseCompleted;
+		public int PenaltyFlags;
+		public int TimesUsedTelescope;
+		public int TimesUsedBoom;
+		public int TimesUsedSwing;
+		public int TimesUsedHoist;
+		public int TimesUsedBrake;
+		public int TimesUsedThrottle;
+		public int TotalObjectives;
+		public int ObjectivesCompleted;
+		public int TimesOverloadedCrane;
+		public int TimesTwoBlockedCrane;
+		public Guid ReportUID;
+	}
+
+	struct User {
+		public string Address;
+		public string Company;
+		public DateTime DateCreated;
+		public string Email;
+		public string FirstName, MiddleName, LastName, SirName;
+		public DateTime LastActive;
+		public DateTime LastModified;
+		public string Phone;
+		public string Title;
+		public string Password;
+		public string Supervisor;
+		public string Notes;
+		public int UserType;
+		public int Permissions;
+		public object IOSSettings_Run;
+		public object IOSSettings_Edit;
+	}
+
+	struct Group {
+		public string Name;
+		[Obsolete("Use MemberUIDs")]
+		public int[] MemberIDs;
+		public Guid[] MemberUIDs;
+		public bool GroupIsTemplate;
+	}
+
+	struct GroupAssignment {
+		public string AssignmentName;
+		public DateTime CreationDate;
+		[Obsolete("Use GroupUID")]
+		public int GroupID;
+		public Guid GroupUID;
+		[Obsolete("Use ExerciseUID")]
+		public int ExerciseID;
+		public Guid ExerciseUID;
+		public int MaxAttempts;
+		public bool AllowPractice;
+	}
+
+	struct Assignment {
+		public string AssignmentName;
+		public DateTime CreationDate;
+		[Obsolete("Use AssignedToUID")]
+		public int AssignedToID;
+		public Guid AssignedToUID;
+		[Obsolete("Use GroupUID")]
+		public int GroupID;
+		public Guid GroupUID;
+		[Obsolete("Use GroupAssignmentUID")]
+		public int GroupAssignmentID;
+		public Guid GroupAssignmentUID;
+		[Obsolete("Use ExerciseUID")]
+		public int ExerciseID;
+		public Guid ExerciseUID;
+		public Guid ScoringUID;
+		public int AttemptsTaken;
+		public int MaxAttempts;
+		public bool AllowPractice;
+		public bool Passed;
+		public bool Complete;
+
+		public bool Modified;
+
+		public int BestAttempt;
+		[Obsolete("Use LinkedReportUID")]
+		public int LinkedReportID;
+		public Guid LinkedReportUID;
+
+		public float ExerciseTimeLimit;
+		public bool SavePracticeScores;
+		public int PracticeLimit;
+		public float MaxPracticeTime;
+		public bool LimitPracticeTime;
+	}
+
+	struct Environment {
+		public string Name;
+		public string Category;
+		public string Description;
+		public DateTime DateCreated;
+		public DateTime LastModified;
+		public DateTime LastUsed;
+		public bool IsBuiltIn;
+
+		public string InternalName;
+		public string JSONData;
+		[Obsolete("Use BaseEnvironmentUID")]
+		public int BaseEnvironmentID;
+		public Guid BaseEnvironmentUID;
+		public object EnvSettings;
+		public object EnvSupportedFeatures;
+		public string PreviewImage;
+		public float EnvHeight;
+		public float EnvWidth;
+		public float EnvLength;
+		public float BridgeToGroundDistance;
+	}
+
+	struct CraneConfig {
+		public string Name;
+		public string Description;
+		public string Category;
+		public DateTime DateCreated;
+		public DateTime LastModified;
+		public DateTime LastUsed;
+		public bool IsDefault;
+		public bool IsBuiltIn;
+
+		public float HoistMaxSpeed;
+		public float BringeMaxSpeed;
+		public float TrolleyMaxSpeed;
+		public float BridgeDecelerationRate;
+		public float TrolleyDecelerationRate;
+		public float SwingCoefficient;
+		public float MaxSwingAngle;
+		public int InputMethod;
+		public int ViewPoint;
+		public object OperatorAid;
+		public bool EnableAuxTrolley;
+		public int ULDSelection;
+
+		public bool EnableAuxHoist;
+	}
+
+	struct Exercise {
+		public string Name;
+		public string Description;
+		public string Category;
+		public bool IsBuiltIn;
+		public DateTime DateCreated;
+		public DateTime LastModified;
+		public DateTime LastUsed;
+
+		[Obsolete("Use EnvironmentUID")]
+		public int EnvironmentID;
+		public Guid EnvironmentUID;
+		[Obsolete("Use CraneConfigUID")]
+		public int CraneConfigID;
+		public Guid CraneConfigUID;
+		public string JSONData;
+		public object EnvSettings;
+		public object ScoringSettings;
+		[Obsolete("Use ScoringSetUID")]
+		public int ScoringSetID;
+		public Guid ScoringSetUID;
+		public bool LockedForUpdate;
+		public int StartFlags;
+		public int EndFlags;
+		public object OperatorAids;
+		public float ExerciseTimeLimit;
+		public int InputMethod;
+		public bool SignalPersonMode;
+	}
+
+	struct SimulatorSettings {
+		public bool EnableStudentLogin;
+		public bool EnableDebugMode;
+		public bool EnableInstructorLogin;
+		public bool UseInstructorPasswords;
+		public bool EnableSystemLogging;
+		public bool EnableHelpMenu;
+		public string MasterPassword;
+		public bool AdminEnabled;
+		public string AdminPassword;
+		public int MaxPlaybackSaves;
+		public int DisplayUnits;
+		public bool EnableShutdown;
+		public bool AutoStartExercises;
+		public bool EnableFeature_Instructors;
+		public bool EnableFeature_Students;
+		public bool EnableFeature_Groups;
+		public bool EnableFeature_Reports;
+		public bool EnableFeature_Assignments;
+		public bool EnableFeature_Environments;
+		public bool EnableFeature_CustomScoring;
+		public bool EnableFeature_CustomCrane;
+		public int SimulatorType;
+		public bool EnableHoistCam;
+		public int SelectedDisplayProfile;
+		public bool SponsoredMode;
+
+		public bool VRSimulator;
+		public bool ReducedFeatureSet;
+		public int VRSeatSelection;
+	}
+
+	struct ScoringDeductions {
+		public string Name;
+		public string Description;
+		public string Category;
+		public bool IsBuiltIn;
+		public DateTime DateCreated;
+		public DateTime LastModified;
+		public DateTime LastUsed;
+
+		public float LoadCollisionDeduction;
+		public float HookCollisionDeduction;
+		public float ConeCollisionDeduction;
+		public float ExcessiveSwingDeduction;
+		public float LoadHeightDeduction;
+		public float SwingThreshold;
+		public float LoadHeightThreshold;
+		public float LoadCollisionSensitivity;
+		public float HookCollisionSensitivity;
+		public float LoadSetDownSensitivity;
+		public float LoadHeightTravelDistance;
+		public int MinimumPassingScore;
+		public float ExerciseTimeLimit;
+		public float ConeCollisionSensitivity;
+		public bool SeparateConeCollisions;
+		public bool HeightLimitIgnoredwithNoLoad;
+		public float PowerlineProximityPenalty;
+		public float PowerlineContactPenalty;
+		public float WarningAcknowledgementFailurePenalty;
+		public float PathDeviationDistance;
+		public float PathDeviationPenalty;
+		public float WarningTimeout;
+		public float PowerlineProximityRadius;
+		public int EnabledPenalties;
+		public float GeneralPenaltyDeduction;
+		public float PickupShockLoadingPenalty;
+		public float SetdownShockLoadingPenalty;
+		public int IncompleteExerciseMaxScore;
+	}
+#>

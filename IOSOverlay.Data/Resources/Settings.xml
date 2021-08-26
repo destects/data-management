@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimulatorSettingsModel xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/IOSOverlay.Data.Models">
+  <CollectionMember>false</CollectionMember>
+  <CreatorID>-1</CreatorID>
+  <CreatorUID>00000000-0000-0000-0000-000000000000</CreatorUID>
+  <ID>-1</ID>
+  <IsSubModel>false</IsSubModel>
+  <State>Immutable</State>
+  <UID>08247f94-319c-4e9d-9be2-07484c1b3671</UID>
+  <Master>
+    <AdminEnabled>false</AdminEnabled>
+    <AdminPassword i:nil="true" />
+    <DisplayUnits>0</DisplayUnits>
+    <EnableDebugMode>true</EnableDebugMode>
+    <EnableHelpMenu>false</EnableHelpMenu>
+    <EnableInstructorLogin>false</EnableInstructorLogin>
+    <EnableShutdown>false</EnableShutdown>
+    <EnableStudentLogin>false</EnableStudentLogin>
+    <EnableSystemLogging>false</EnableSystemLogging>
+    <MasterPassword i:nil="true" />
+    <MaxPlaybackSaves>0</MaxPlaybackSaves>
+    <UseInstructorPasswords>false</UseInstructorPasswords>
+    <MultiDisplayMode>false</MultiDisplayMode>
+    <EnableFeature_Instructors>true</EnableFeature_Instructors>
+    <EnableFeature_Students>true</EnableFeature_Students>
+    <EnableFeature_Groups>true</EnableFeature_Groups>
+    <EnableFeature_Reports>true</EnableFeature_Reports>
+    <EnableFeature_Assignments>true</EnableFeature_Assignments>
+    <EnableFeature_Environments>true</EnableFeature_Environments>
+    <EnableFeature_CustomScoring>true</EnableFeature_CustomScoring>
+    <EnableFeature_CustomCrane>true</EnableFeature_CustomCrane>
+  </Master>
+</SimulatorSettingsModel>
